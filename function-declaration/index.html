@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Function declaration</title>
+</head>
+
+<body>
+    <script>
+
+        // function statement declaration
+
+        function whatever() {
+            // statements
+        }
+
+        console.log(typeof whatever)    // function
+
+
+
+
+
+
+
+        // function expressions declarations
+
+        const fnExpr = function () {
+            // statements
+        }
+
+        const arrFnExp = () => {
+            // statements
+        }
+
+
+
+
+
+
+        // Function global object constructor
+
+        const test3 = new Function('a', 'b', 'return a+b')
+
+        console.log(test3(40, 25))
+
+
+
+
+
+
+
+
+        // Functions as values
+
+        function add(first, second, resultFn) {
+
+            console.log("Add function started")
+            resultFn ? resultFn(first + second) : console.log('No function for', first, 'and', second)
+            /*
+            if (resultFn) {
+                resultFn(first + second)
+            } else {
+                console.log('No function for', first, 'and', second)
+            }
+            */
+        }
+
+        function logDone(num) {
+            console.log("I'm done! The result is: " + num);
+        }
+
+        function square(num) {
+            console.log("The square is: " + num * num);
+        }
+
+        add(2, 3, logDone)
+        add(2, 3, square)
+        add(2, 3)
+
+
+
+
+
+        // Anonymous functions
+
+        const arr = [1, 2, 3]
+        arr.forEach(elm => console.log(elm))
+
+        console.log('---- ahora nominal -----')
+
+        arr.forEach(showOnConsole)
+        function showOnConsole(elm) {
+            console.log(elm)
+        }
+
+
+
+        console.log({ window })
+
+    </script>
+</body>
+
+</html>

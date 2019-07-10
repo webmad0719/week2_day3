@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Context</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+        var ayayay = 'yay'
+
+        function alertMeNowPlz(msg) {
+            alert(msg)
+        }
+
+        console.log('Echa un vistazo al objeto Window y verás la variable y la función como propiedades de la misma (window pollution)\n', window)
+        console.log('El contexto global hace referencia al objeto window', this)
+        console.log(this === window)
+
+        */
+
+
+
+
+
+
+
+
+        /*
+        function whatever() {
+            // El contexto de una función (this) es window
+            console.log('El contexto de un function statement también hace referencia al objeto window', this)
+        }
+
+        whatever()
+
+
+
+
+        const person = {
+            age: 22,
+            weight: 89,
+            grow: function (years) {    // El contexto de un método es el objeto al que pertenece
+                // console.log(this.age)
+                // console.log(this)
+                this.age += years
+            },
+            walk1: function () {
+                setInterval(function () {   // El contexto de una función (this) es window, incluso estando dentro de un método
+                    this.weight -= .1
+                    console.log(this.weight)
+                }, 1000)
+            },
+            walk2: function () {
+                let that = this
+                setInterval(function () {   // Solucionado! (no hagas esto) Conservamos el contexto del objeto en la variable 'that'
+                    this.weight -= .1
+                    console.log(that.weight)
+                }, 1000)
+            },
+            walk3: function () {
+                setInterval(() => {   // Solucionado! Arrow function no reorientan el contexto
+                    this.weight -= .1
+                    console.log(this.weight)
+                }, 1000)
+            },
+            walk4: function () {
+                setInterval(function () {   // Solucionado! El método .bind() de los objetos de tipo function permite indicar el contexto deseado para esa función
+                    this.weight -= .1
+                    console.log(this.weight)
+                }.bind(this), 1000)
+            }
+        }
+
+        console.log(person.age)
+        person.grow(10)
+        console.log(person.age)
+            //person.walk1()    // no funciona
+            //person.walk2()
+            //person.walk3()
+            //person.walk4()
+        */
+
+
+
+
+
+        /*
+        class Person {
+
+            constructor(age, weight) {
+                this._age = age
+                this._weight = weight
+            }
+
+            grow(years) {
+                this._age += years
+            }
+
+            walk() {
+                setInterval(() => {     // En los métodos de clases se aplica el mismo principio que en objetos literales. No worries.
+                    console.log(this._weight.toFixed(2))
+                    this._weight -= .1
+                }, 1000)
+            }
+        }
+
+        const person1 = new Person(22, 98)
+
+        console.log(person1._age)
+        person1.grow(10)
+        console.log(person1._age)
+        person1.walk()
+        */
+
+    </script>
+</body>
+
+</html>
